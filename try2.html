@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>Maria Mim | Enter My World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Kalpurush Font -->
+  <link rel="preconnect" href="https://fonts.maateen.me">
+  <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Kalpurush', sans-serif;
+      background-color: #000;
+      color: #ffdce9;
+      overflow-x: hidden;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .nsfw-gate {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.96);
+      color: #ffcce6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      z-index: 999;
+    }
+
+    .nsfw-gate h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .nsfw-btn {
+      background: #ff007f;
+      padding: 15px 30px;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff80a0;
+      text-shadow: 0 0 15px #ff3388;
+    }
+
+    .intro-text {
+      font-size: 1.4rem;
+      margin: 20px 0 40px;
+      color: #ffcce6;
+      line-height: 1.6;
+    }
+
+    .enter-btn {
+      background: linear-gradient(to right, #ff007f, #e6005c);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255, 0, 120, 0.6);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .enter-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(255, 0, 120, 0.9);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .parallax-section {
+      background-image: url('https://images.unsplash.com/photo-1544388450-7049d1c1795b');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+      color: #ffdce9;
+    }
+
+    .countdown-box {
+      background: #1a001a;
+      color: #ffb3d9;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1.5rem;
+    }
+
+    #countdown {
+      font-size: 2rem;
+      margin-top: 10px;
+      color: #ff66cc;
+    }
+
+    .gallery {
+      padding: 60px 20px;
+      background-color: #0d0010;
+      text-align: center;
+    }
+
+    .gallery h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #ffaad4;
+    }
+
+    .videos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .video-card {
+      width: 300px;
+      height: 170px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 0, 100, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .video-card:hover {
+      transform: scale(1.05);
+    }
+
+    .video-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(4px) grayscale(0.4);
+      transition: filter 0.4s, transform 0.3s;
+    }
+
+    .video-card:hover video {
+      filter: blur(0) grayscale(0);
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .intro-text { font-size: 1.1rem; }
+      .videos {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="https://github.com/mariamim69/videos/raw/refs/heads/main/mim_1.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <!-- 🔞 NSFW Gate -->
+  <div class="nsfw-gate" id="nsfwGate">
+    <h2>🔞 তুমি কি ১৮+?</h2>
+    <button class="nsfw-btn" onclick="document.getElementById('nsfwGate').style.display='none'">হ্যাঁ, আমি প্রস্তুত 😈</button>
+  </div>
+
+  <!-- 💋 Hero Section -->
+  <div class="hero">
+    <h1>মারিয়া মিম 💋</h1>
+    <p class="intro-text">
+      চোখে রহস্য... ঠোঁটে আগুন...<br>
+      আমি শুধু তোমার জন্য।<br>
+      সাহস থাকলে ভিতরে এসো 😉🔥
+    </p>
+    <a href="members.html" class="enter-btn">🔥 Enter My World</a>
+  </div>
+
+  <!-- 🔮 Parallax Section -->
+  <section class="parallax-section">
+    <div>
+      <h2>আমার গোপন জগতের দরজা খুলে যাচ্ছে...</h2>
+      <p>তুমি কি প্রস্তুত?</p>
+    </div>
+  </section>
+
+  <!-- ⏳ Countdown Timer -->
+  <div class="countdown-box">
+    <h3>🔥 নতুন কিছু আসছে:</h3>
+    <div id="countdown"></div>
+  </div>
+
+  <!-- 🎥 Video Gallery -->
+  <div class="gallery">
+    <h2>আরো গরম মুহূর্ত দেখো 🔞</h2>
+    <div class="videos">
+      <div class="video-card"><video autoplay muted loop playsinline><source src="https://github.com/mariamim69/videos/raw/refs/heads/main/mim2.mp4"></video></div>
+      <div class="video-card"><video autoplay muted loop playsinline><source src="https://github.com/mariamim69/videos/raw/refs/heads/main/maria_mim_3.mp4"></video></div>
+      <div class="video-card"><video autoplay muted loop playsinline><source src="https://github.com/mariamim69/videos/raw/refs/heads/main/maria_mim_4.mp4"></video></div>
+      <div class="video-card"><video autoplay muted loop playsinline><source src="https://github.com/mariamim69/videos/raw/refs/heads/main/maria_mim_5.mp4"></video></div>
+      <div class="video-card"><video autoplay muted loop playsinline><source src="https://github.com/mariamim69/videos/raw/refs/heads/main/maria_mim_6.mp4"></video></div>
+      <div class="video-card"><video autoplay muted loop playsinline><source src="https://github.com/mariamim69/videos/raw/refs/heads/main/maria_mim_7.mp4"></video></div>
+    </div>
+  </div>
+
+  <!-- 📜 Scripts -->
+  <script>
+    // Countdown Timer
+    const targetDate = new Date("2025-06-03T21:00:00").getTime();
+    const countdownFunc = setInterval(function () {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("countdown").innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+      if (distance < 0) {
+        clearInterval(countdownFunc);
+        document.getElementById("countdown").innerHTML = "আমি এখন প্রস্তুত... 😈";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
